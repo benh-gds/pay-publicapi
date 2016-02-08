@@ -192,9 +192,11 @@
         },
         "payment_provider" : {
           "type" : "string",
+          "example" : "sandbox",
           "readOnly" : true
         },
         "_links" : {
+          "readOnly" : true,
           "$ref" : "#/definitions/paymentLinks"
         },
         "created_date" : {

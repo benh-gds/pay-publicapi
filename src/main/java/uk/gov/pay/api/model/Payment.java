@@ -83,6 +83,7 @@ public class Payment {
         return reference;
     }
 
+    @ApiModelProperty(example = "sandbox")
     public String getPaymentProvider() {
         return paymentProvider;
     }
@@ -100,6 +101,11 @@ public class Payment {
                 ", createdDate='" + createdDate + '\'' +
                 ", links=" + links +
                 '}';
+    }
+
+    @ApiModelProperty
+    public Links getLinks() {
+        return links;
     }
 
     public Payment withSelfLink(String url) {
