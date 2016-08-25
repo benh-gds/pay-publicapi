@@ -14,41 +14,41 @@ public class PaymentError {
 
     public enum Code {
 
-        CREATE_PAYMENT_ACCOUNT_ERROR("P0199", "There is an error with this account. Please contact support"),
-        CREATE_PAYMENT_CONNECTOR_ERROR("P0198", "Downstream system error"),
-        CREATE_PAYMENT_PARSING_ERROR("P0197", "Unable to parse JSON"),
-        CREATE_PAYMENT_MISSING_FIELD_ERROR("P0101", "Missing mandatory attribute: %s"),
-        CREATE_PAYMENT_VALIDATION_ERROR("P0102", "Invalid attribute value: %s. %s"),
+        CREATE_PAYMENT_ACCOUNT_ERROR("P0199", "There is a problem with your service account: contact us, quoting the error code"),
+        CREATE_PAYMENT_CONNECTOR_ERROR("P0198", "Internal error with GOV.UK Pay: contact us, quoting the error code"),
+        CREATE_PAYMENT_PARSING_ERROR("P0197", "Unable to parse JSON; the JSON you sent in the request body is invalid"),
+        CREATE_PAYMENT_MISSING_FIELD_ERROR("P0101", "The request you sent is missing a required attribute: %s"),
+        CREATE_PAYMENT_VALIDATION_ERROR("P0102", "The request you sent has an invalid attribute value: %s. %s"),
 
-        GET_PAYMENT_NOT_FOUND_ERROR("P0200", "Not found"),
-        GET_PAYMENT_CONNECTOR_ERROR("P0298", "Downstream system error"),
+        GET_PAYMENT_NOT_FOUND_ERROR("P0200", "paymentId not found; no payment matched the paymentId you provided"),
+        GET_PAYMENT_CONNECTOR_ERROR("P0298", "Internal error with GOV.UK Pay: contact us, quoting the error code"),
 
-        GET_PAYMENT_EVENTS_NOT_FOUND_ERROR("P0300", "Not found"),
-        GET_PAYMENT_EVENTS_CONNECTOR_ERROR("P0398", "Downstream system error"),
+        GET_PAYMENT_EVENTS_NOT_FOUND_ERROR("P0300", "paymentId not found; no payment matched the paymentId you provided"),
+        GET_PAYMENT_EVENTS_CONNECTOR_ERROR("P0398", "Internal error with GOV.UK Pay: contact us, quoting the error code"),
 
-        SEARCH_PAYMENTS_VALIDATION_ERROR("P0401", "Invalid parameters: %s. See Public API documentation for the correct data formats"),
-        SEARCH_PAYMENTS_NOT_FOUND("P0402", "Page not found"),
-        SEARCH_PAYMENTS_CONNECTOR_ERROR("P0498", "Downstream system error"),
+        SEARCH_PAYMENTS_VALIDATION_ERROR("P0401", "The request you sent has invalid parameters: %s. "),
+        SEARCH_PAYMENTS_NOT_FOUND("P0402", "The requested page of search results does not exist"),
+        SEARCH_PAYMENTS_CONNECTOR_ERROR("P0498", "Internal error with GOV.UK Pay: contact us, quoting the error code"),
 
-        CANCEL_PAYMENT_NOT_FOUND_ERROR("P0500", "Not found"),
-        CANCEL_PAYMENT_CONNECTOR_BAD_REQUEST_ERROR("P0501", "Cancellation of payment failed"),
-        CANCEL_PAYMENT_CONNECTOR_ERROR("P0598", "Downstream system error"),
+        CANCEL_PAYMENT_NOT_FOUND_ERROR("P0500", "paymentId not found; no payment matched the paymentId you provided"),
+        CANCEL_PAYMENT_CONNECTOR_BAD_REQUEST_ERROR("P0501", "Cancelling the payment failed; contact us, quoting the error code"),
+        CANCEL_PAYMENT_CONNECTOR_ERROR("P0598", "Internal error with GOV.UK Pay; contact us, quoting the error code"),
 
-        CREATE_PAYMENT_REFUND_CONNECTOR_ERROR("P0698", "Downstream system error"),
-        CREATE_PAYMENT_REFUND_PARSING_ERROR("P0697", "Unable to parse JSON"),
-        CREATE_PAYMENT_REFUND_NOT_FOUND_ERROR("P0600", "Not found"),
-        CREATE_PAYMENT_REFUND_MISSING_FIELD_ERROR("P0601", "Missing mandatory attribute: %s"),
-        CREATE_PAYMENT_REFUND_VALIDATION_ERROR("P0602", "Invalid attribute value: %s. %s"),
+        CREATE_PAYMENT_REFUND_CONNECTOR_ERROR("P0698", "Internal error with GOV.UK Pay; contact us, quoting the error code"),
+        CREATE_PAYMENT_REFUND_PARSING_ERROR("P0697", "Unable to parse JSON; the JSON you sent in the request body is invalid"),
+        CREATE_PAYMENT_REFUND_NOT_FOUND_ERROR("P0600", "paymentId not found; no payment matched the paymentId you provided"),
+        CREATE_PAYMENT_REFUND_MISSING_FIELD_ERROR("P0601", "The request you sent is missing a required attribute: %s"),
+        CREATE_PAYMENT_REFUND_VALIDATION_ERROR("P0602", "The value of an attribute you sent is invalid: %s. %s"),
         CREATE_PAYMENT_REFUND_NOT_AVAILABLE("P0603", "The payment is not available for refund. Payment refund status: %s"),
 
-        GET_PAYMENT_REFUND_NOT_FOUND_ERROR("P0700", "Not found"),
-        GET_PAYMENT_REFUND_CONNECTOR_ERROR("P0798", "Downstream system error"),
+        GET_PAYMENT_REFUND_NOT_FOUND_ERROR("P0700", "refundId not found; no refund matched the refundId you provided"),
+        GET_PAYMENT_REFUND_CONNECTOR_ERROR("P0798", "Internal error with GOV.UK Pay; contact us, quoting the error code"),
 
-        GET_PAYMENT_REFUNDS_NOT_FOUND_ERROR("P0800", "Not found"),
-        GET_PAYMENT_REFUNDS_CONNECTOR_ERROR("P0898", "Downstream system error"),
+        GET_PAYMENT_REFUNDS_NOT_FOUND_ERROR("P0800", "refundId not found; no refund matched the refundId you provided"),
+        GET_PAYMENT_REFUNDS_CONNECTOR_ERROR("P0898", "Internal error with GOV.UK Pay; contact us, quoting the error code"),
 
-        TOO_MANY_REQUESTS_ERROR("P0900", "Too many requests"),
-        REQUEST_DENIED_ERROR("P0920", "Request blocked by security rules. Please consult API documentation for more information.");
+        TOO_MANY_REQUESTS_ERROR("P0900", "Too many requests; your service account is sending requests above the allowed rate; try the request again in a few seconds"),
+        REQUEST_DENIED_ERROR("P0920", "Request blocked by security rules. Our firewall blocked your request. See Troubleshooting section of documentation for details");
 
         private String value;
         private String format;
