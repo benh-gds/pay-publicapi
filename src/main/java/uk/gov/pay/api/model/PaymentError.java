@@ -38,8 +38,8 @@ public class PaymentError {
         CREATE_PAYMENT_REFUND_PARSING_ERROR("P0697", "Unable to parse JSON; the JSON you sent in the request body is invalid"),
         CREATE_PAYMENT_REFUND_NOT_FOUND_ERROR("P0600", "paymentId not found; no payment matched the paymentId you provided"),
         CREATE_PAYMENT_REFUND_MISSING_FIELD_ERROR("P0601", "The request you sent is missing a required attribute: %s"),
-        CREATE_PAYMENT_REFUND_VALIDATION_ERROR("P0602", "The value of an attribute you sent is invalid: %s. %s"),
-        CREATE_PAYMENT_REFUND_NOT_AVAILABLE("P0603", "The payment is not available for refund. Payment refund status: %s"),
+        CREATE_PAYMENT_REFUND_VALIDATION_ERROR("P0602", "The request you sent has an invalid attribute value: %s. %s"),
+        CREATE_PAYMENT_REFUND_NOT_AVAILABLE("P0603", "The payment cannot be refunded. Reason: %s"),
 
         GET_PAYMENT_REFUND_NOT_FOUND_ERROR("P0700", "refundId not found; no refund matched the refundId you provided"),
         GET_PAYMENT_REFUND_CONNECTOR_ERROR("P0798", "Internal error with GOV.UK Pay; contact us, quoting the error code"),
